@@ -1,48 +1,56 @@
 package scaffold.framework.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.* ;
+
 
 @Entity
-@Table(name = "promotion")
-public class Promotion {
+@Table(name = "promotion")        
 
+public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id ;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
+    @Column(name = "name", nullable = false)    
+    private String name ;
 
-    @Column(name = "year", nullable = false)
-    private Integer year;
+    @Column(name = "year", nullable = false)    
+    private Integer year ;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+
+
+    public void setId (Integer value) {
+        this.id= value ;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setName (String value) {
+        this.name= value ;
     }
 
-    public String getName() {
-        return name;
+    public void setYear (Integer value) {
+        this.year= value ;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+
+    public Integer getId () {
+        return this.id ;
     }
 
-    public Integer getYear() {
-        return year;
+    public String getName () {
+        return this.name ;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public Integer getYear () {
+        return this.year ;
     }
 
     @Override
-    public String toString() {
-        return this.getName();
-    }
+public String toString() {
+    return name;
 }
+
+
+
+}
+

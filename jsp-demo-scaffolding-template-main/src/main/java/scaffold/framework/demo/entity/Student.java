@@ -1,68 +1,75 @@
 package scaffold.framework.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.* ;
 
-import java.time.LocalDate;
+import java.sql.Date ;
 
 @Entity
-@Table(name = "student")
+@Table(name = "student")        
+
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id ;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
+    @Column(name = "name", nullable = false)    
+    private String name ;
 
-    @Column(name = "first_name", length = 100)
-    private String firstName;
+    @Column(name = "first_name", nullable = false)    
+    private String first_name ;
 
-    @Column(name = "birthdate", nullable = false)
-    private LocalDate birthdate;
+    @Column(name = "birthdate", nullable = false)    
+    private Date birthdate ;
+
 
     @ManyToOne
     @JoinColumn(name = "promotion_id", nullable = false)
-    private Promotion promotion;
+    private Promotion promotion ;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+    public void setId (Integer value) {
+        this.id= value ;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setName (String value) {
+        this.name= value ;
     }
 
-    public String getName() {
-        return name;
+    public void setFirst_name (String value) {
+        this.first_name= value ;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBirthdate (Date value) {
+        this.birthdate= value ;
     }
 
-    public String getFirstName() {
-        return firstName;
+
+    public void setPromotion (Promotion value) {
+        this.promotion= value ;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+    public Integer getId () {
+        return this.id ;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
+    public String getName () {
+        return this.name ;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public String getFirst_name () {
+        return this.first_name ;
     }
 
-    public Promotion getPromotion() {
-        return promotion;
+    public Date getBirthdate () {
+        return this.birthdate ;
     }
 
-    public void setPromotion(Promotion promotion) {
-        this.promotion = promotion;
+
+    public Promotion getPromotion () {
+        return this.promotion ;
     }
+
+
 }
+
